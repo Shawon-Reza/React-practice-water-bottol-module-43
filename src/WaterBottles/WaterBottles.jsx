@@ -22,7 +22,7 @@ const WaterBottles = () => {
         addtoLS(bottledetails.id)  //Sending Purchase card id to addtoLs funtion for saving in localSorate
 
     }
-    // Fetching data from local Storage
+    // Fetching purchase data from local Storage
     const [purchedBOttols, setPurchasedBottol] = useState([])
     useEffect(() => {
         const LSdata = localStorage.getItem('cart');
@@ -34,29 +34,31 @@ const WaterBottles = () => {
     }, [pBottles]);
 
     // Find Bottols Details through purchase Bottols ID
-    const purchaseDetails = []    //Purchase Bottols Full Details
-    for (const id of purchedBOttols) {
-        const pbDetails = bottles.find(bottol => bottol.id === id)
-        if (pbDetails) {
-            purchaseDetails.push(pbDetails)
-        }
+  
+    // console.log(purchaseDetails)
+
+    const removetoLS = (id) => {
+       
+
+
     }
-// console.log(purchaseDetails)
+
 
     return (
         <div>
             <h1>Bottles</h1>
             <p>Purchase bottle:{purchedBOttols.length}</p>
+            {/* Display Purchase Botttles on screen */}
             <div style={{
-                display:'grid',
-                gridTemplateColumns:'repeat(12,1fr)',
-                gap:'5px',
-                marginBottom:'30px'
+                display: 'grid',
+                gridTemplateColumns: 'repeat(12,1fr)',
+                gap: '5px',
+                marginBottom: '30px'
             }}>
                 {
-                    purchaseDetails.map(bottol=><DisplayPB
-                    key={bottol.id}
-                    purchaseBottol={bottol}
+                    purchaseDetails.map(bottol => <DisplayPB
+                        key={bottol.id}
+                        purchaseBottol={bottol}
                     ></DisplayPB>)
                 }
             </div>
@@ -81,3 +83,4 @@ const WaterBottles = () => {
 };
 
 export default WaterBottles;
+export { removetoLS }

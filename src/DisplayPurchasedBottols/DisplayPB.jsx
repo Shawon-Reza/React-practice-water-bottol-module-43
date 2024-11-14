@@ -1,8 +1,6 @@
-
-
+import { removetoLS } from "../WaterBottles/WaterBottles";
 const DisplayPB = ({purchaseBottol}) => {
-const {img}=purchaseBottol
-
+const {img,id}=purchaseBottol
     return (
         <div style={{
             border:'2px solid purple',
@@ -11,7 +9,7 @@ const {img}=purchaseBottol
             <img style={{
                 width:'100px'
             }} src={img} alt="" />
-            <button>Remove</button>
+            <button onClick={()=>{removetoLS(id)}}>Remove</button>
         </div>
     );
 };
